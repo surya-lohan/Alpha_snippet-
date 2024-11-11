@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Categories from "./Categories";
+import { Link } from "react-router-dom";
 import { databases, account } from "../lib/appwrite"; // Import account from appwrite
 // import Quiz from "./Quiz";
 
@@ -120,13 +121,13 @@ const Courses = () => {
   return (
     <div className="flex">
       <div className="w-[10%] h-screen text-white bg-[#383838]">
-        <ul>
-          <li>X</li>
-          <li>y</li>
-          <li>z</li>
-          <li>1</li>
+        <ul className="flex flex-col text-center align-middle  ">
+          <Link className=" mt-[60%]  bg-blue-600  rounded-[10px] relative left-[25%]  h-[4vh] w-[5vw] text-wrap" > progress </Link>
+          <Link className="mt-[45%]  bg-green-600  rounded-[10px] relative left-[25%]  h-[4vh] w-[5vw] " > Profile </Link>
+          <Link className="mt-[30%]  bg-yellow-300  rounded-[10px] relative left-[25%] h-[4vh] w-[5vw]" > Lessons </Link>
+          <Link className="mt-[55%]  bg-orange-400  rounded-[10px] relative left-[25%] h-[4vh] w-[5vw]" > Quize </Link>
+          <button onClick={handleLogout} className=" bg-red-600  rounded-[20px] relative left-[25%] mt-[150%] h-[4vh] w-[5vw] text-center align-middle ">Log out</button>
         </ul>
-        <button onClick={handleLogout}>Log out</button>
       </div>
       <div className="min-h-screen w-[90%] p-5  bg-[#09141B] ">
         <div>
@@ -138,8 +139,8 @@ const Courses = () => {
                 className="rounded-xl bg-[#060e13] hover:scale-[1.1] duration-300 drop-shadow-xl shadow-xl border border-white relative text-white min-h-[40vh] overflow-hidden w-[20vw]"
               >
                 <img className="w-full h-[65%] " src="" alt="" />
+                <div className="rounded-[50%] absolute right-[8%] top-[5%] bg-[url('./assets/bookmark.svg')]  h-[4vh] w-[2vw]"></div>
                 <div className="rounded-[50%] absolute left-[20%] top-[38%] bg-white h-[4vh] w-[2vw]"></div>
-                <div className="rounded-[50%] absolute right-[8%] top-[5%] bg-white h-[4vh] w-[2vw]"></div>
                 <div className="flex flex-col p-2 ">
                   <h3 className="text-sm m-4">{course.title}</h3>
                   <div className="flex ml-4 justify-evenly gap-4">

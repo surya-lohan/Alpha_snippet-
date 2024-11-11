@@ -103,8 +103,8 @@ export default function SignUp() {
   };
 
   return (
-    <div className="flex items-center justify-evenly w-screen h-screen bg-[#09141b]">
-      <div className="flex flex-col items-center bg-gray-500 rounded-[3vh] text-center text-white w-[30vw] font-sans p-[4vh]">
+    <div className="flex items-center justify-evenly w-screen h-screen bg-[#09141b] ">
+      <div className="flex flex-col items-center md:bg-gray-500 text-white rounded-[3vh] text-center w-[30vw] font-sans p-[4vh] bg-white">
         <h1 className="font-normal text-[4vh]">Discover a new way to learn</h1>
         <h3 className="mt-[3vh] text-[2vh]">
           Engage students with personalized gamified lessons
@@ -115,7 +115,7 @@ export default function SignUp() {
         />
         <p className="mt-[6vh]">Level up with your teaching experience!</p>
       </div>
-      <div className="flex flex-col items-center rounded-[3vh] text-center text-white w-[30vw] font-sans p-[4vh]">
+      <div className="flex flex-col items-center rounded-[3vh] text-center text-white w-[30vw] font-sans p-[4vh] {/**/}">
         <h1 className="font-normal text-[3.6vh]">
           Sign Up now for exclusive access
         </h1>
