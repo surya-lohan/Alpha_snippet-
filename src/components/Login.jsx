@@ -29,7 +29,11 @@ export default function Login() {
 
       if (user.$id && /^[a-zA-Z0-9._-]{1,36}$/.test(user.$id)) {
         try {
-          await databases.getDocument("surya-data", "users-collection", user.$id);
+          await databases.getDocument(
+            "surya-data",
+            "users-collection",
+            user.$id
+          );
         } catch (error) {
           if (error.code === 404) {
             // Create a new document if the user does not exist
@@ -77,7 +81,7 @@ export default function Login() {
 
   return (
     <>
-      <div class="box bg-[#09141B] w-full h-screen flex flex-col items-center justify-center text-center text-white font-sans">
+      <div class="box bg-[#09141B] w-screen h-screen flex flex-col items-center justify-center text-center text-white font-sans">
         <div class="box-inside w-[40vw] h-[80vh] border border-opacity-10 border-black rounded-[3vw] bg-black bg-opacity-30 flex flex-col justify-around items-center">
           <div class="first flex flex-col items-center gap-[2vh]">
             <h3 class="text-[4vh]">Welcome back to</h3>

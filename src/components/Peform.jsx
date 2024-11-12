@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import PerformersLeaderBoard from "./PerformerLeaderBoard";
 import { account, databases } from "../lib/appwrite";
 import { Query } from "appwrite";
-
+import { useNavigate } from "react-router-dom";
 const Peform = () => {
+  const navigate = useNavigate();
+  const handleclickprofile = () => {
+    navigate("/profile");
+  };
   const [leaderboard, setLeaderboard] = useState([]);
 
   const getUser = async () => {
@@ -100,7 +104,7 @@ const Peform = () => {
         <div className="title1">
           <div className="title_log">
             <img src="" alt="" />
-            <h2>My lessons</h2>
+            <h2 onClick={handleclickprofile}>My lessons</h2>
           </div>
           <div className="sidebar_uls">
             <section>
@@ -141,9 +145,9 @@ const Peform = () => {
           </div>
         </div>
       </div>
-      <div className="p-4">
-        <div className="peformance_chart w-[20vw] h-[5vh]">
-          <div className="heading">
+      <div className="p-4 ">
+        <div className=" w-[100%] h-[5vh]">
+          <div className="heading2 ">
             <h1> Top Performance</h1>
             <img src="" alt="" />
           </div>

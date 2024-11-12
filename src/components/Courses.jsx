@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Categories from "./Categories";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { databases, account } from "../lib/appwrite"; // Import account from appwrite
-// import Quiz from "./Quiz";
-
+import Quiz from "./Quiz";
+import "remixicon/fonts/remixicon.css";
+// import { useNavigate } from "react-router-dom";
 const Courses = () => {
   const [coursedata, setCoursedata] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -119,14 +120,46 @@ const Courses = () => {
   }, []);
 
   return (
-    <div className="flex">
-      <div className="w-[10%] h-screen text-white bg-[#383838]">
-        <ul className="flex flex-col text-center align-middle  ">
-          <Link className=" mt-[60%]  bg-blue-600  rounded-[10px] relative left-[25%]  h-[4vh] w-[5vw] text-wrap" > progress </Link>
-          <Link className="mt-[45%]  bg-green-600  rounded-[10px] relative left-[25%]  h-[4vh] w-[5vw] " > Profile </Link>
-          <Link className="mt-[30%]  bg-yellow-300  rounded-[10px] relative left-[25%] h-[4vh] w-[5vw]" > Lessons </Link>
-          <Link className="mt-[55%]  bg-orange-400  rounded-[10px] relative left-[25%] h-[4vh] w-[5vw]" > Quize </Link>
-          <button onClick={handleLogout} className=" bg-red-600  rounded-[20px] relative left-[25%] mt-[150%] h-[4vh] w-[5vw] text-center align-middle ">Log out</button>
+    <div className="flex w-screen min-h-screen ">
+      <div className="w-[10%] min-h-screen text-white bg-[#383838]">
+        <ul className="flex gap-16 p-4 mt-7 flex-col justify-center items-center ">
+          <Link
+            to={"/performance"}
+            className="  gap-2 rounded-[10px]  hover:scale-[1.1] duration-300 h-[4vh] w-[5vw] text-wrap flex flex-row"
+          >
+            {" "}
+            <i class="ri-bubble-chart-fill"></i>
+            progress{" "}
+          </Link>
+
+          <Link
+            to={"/profile"}
+            className="  gap-2  rounded-[10px]  hover:scale-[1.1] duration-300 h-[4vh] w-[5vw] flex flex-row "
+          >
+            {" "}
+            <i class="ri-user-3-fill"></i>
+            Profile{" "}
+          </Link>
+          <Link className="  gap-2  rounded-[10px]  hover:scale-[1.1] duration-300  h-[4vh] w-[5vw] flex flex-row">
+            {" "}
+            <i class="ri-bubble-chart-fill"></i>
+            Lessons{" "}
+          </Link>
+
+          <Link
+            to={"/quiz"}
+            className=" gap-2  rounded-[10px]  hover:scale-[1.1] duration-300  h-[4vh] w-[5vw] flex flex-row"
+          >
+            <i class="ri-question-answer-fill"></i>
+            Quiz
+          </Link>
+
+          <button
+            onClick={handleLogout}
+            className=" bg-red-600  rounded-[20px] hover:scale-[1.1] duration-300  mt-[150%] h-[4vh] w-[5vw] text-center align-middle "
+          >
+            Log out
+          </button>
         </ul>
       </div>
       <div className="min-h-screen w-[90%] p-5  bg-[#09141B] ">
@@ -138,7 +171,7 @@ const Courses = () => {
                 key={index}
                 className="rounded-xl bg-[#060e13] hover:scale-[1.1] duration-300 drop-shadow-xl shadow-xl border border-white relative text-white min-h-[40vh] overflow-hidden w-[20vw]"
               >
-                <img className="w-full h-[65%] " src="" alt="" />
+                <img className="w-full h-[65%] " src={course.img} alt="" />
                 <div className="rounded-[50%] absolute right-[8%] top-[5%] bg-[url('./assets/bookmark.svg')]  h-[4vh] w-[2vw]"></div>
                 <div className="rounded-[50%] absolute left-[20%] top-[38%] bg-white h-[4vh] w-[2vw]"></div>
                 <div className="flex flex-col p-2 ">
@@ -161,6 +194,17 @@ const Courses = () => {
           </div>
         </div>
         <Categories />
+        <div className="leBeat">
+          <h1 className="text-white text-5xl mt-[10%] text-center animate-linear animate-leBeat">
+            LET'S TAKE A QUIZ...
+          </h1>
+        </div>
+        <button
+          onClick={() => window.open("/quiz", "_self")}
+          className="w-fit h-fit px-4 py-2 rounded-full translate-x-[40vw] text-white my-5 bg-red-600"
+        >
+          Take Quiz
+        </button>
       </div>
     </div>
   );

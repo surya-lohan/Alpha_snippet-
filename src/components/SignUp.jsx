@@ -110,6 +110,7 @@ export default function SignUp() {
           Engage students with personalized gamified lessons
         </h3>
         <img
+          className=" rounded-[20px] my-3"
           src="https://plus.unsplash.com/premium_photo-1682284353484-4e16001c58eb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="img"
         />
@@ -122,7 +123,10 @@ export default function SignUp() {
         <h4 className="text-[2vh]">
           Unlock interactive lessons and resources today.
         </h4>
-        <form className="signup-inputBtn" onSubmit={handleSubmit}>
+        <form
+          className="signup-inputBtn w-[25vw] flex flex-col items-center gap-2 mt-3 justify-center"
+          onSubmit={handleSubmit}
+        >
           <input
             className="w-full h-[8vh] mt-[1vh] bg-[#383838] rounded-[3vh] p-[3vh]"
             name="name"

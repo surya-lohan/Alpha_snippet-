@@ -34,7 +34,6 @@ const StudentProfile = () => {
     <div className="bg-[#000000d4]  w-screen min-h-screen">
       <ProfilePart1 userName={userName} />
       <ProfilePart2 />
-      <Quiz />
     </div>
   );
 };

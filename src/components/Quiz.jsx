@@ -1,8 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { account, databases } from "../lib/appwrite"; // Import Appwrite databases
-
+import { useNavigate } from "react-router-dom";
 export default function Quiz() {
+  const navigate = useNavigate();
+  const handlecourses = () => {
+    navigate("/courses");
+  };
+  const handleleader = () => {
+    navigate("/performance");
+  };
+
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -117,11 +125,23 @@ export default function Quiz() {
     : [];
 
   return (
-    <div className="outer-div bg-[#09141B] w-full h-screen flex items-center flex-col justify-center">
+    <div className="outer-div bg-[#09141B] w-screen h-screen flex items-center flex-col justify-center">
       <div className="white-box w-[50vw] h-[70vh] border-2 border-white text-black bg-white p-[4vh] rounded-[3vh]">
         {currentQuestionIndex >= questions.length ? (
-          <div className="flex items-center justify-center h-full">
+          <div className="flex flex-col items-center justify-center h-full">
             <h1 className="text-[4vh] font-bold">Quiz Completed!</h1>
+            <button
+              onClick={handlecourses}
+              className="w-fit h-fit px-4 py-3 rounded-md my-6 bg-green-300 font-semibold"
+            >
+              Return to Courses
+            </button>
+            <button
+              onClick={handleleader}
+              className="w-fit h-fit px-4 py-2 rounded-md bg-red-300 text-zinc-700 font-semibold"
+            >
+              Check Leaderboard
+            </button>
           </div>
         ) : (
           <>
@@ -178,13 +198,13 @@ export default function Quiz() {
               ) : (
                 <div>No question available</div>
               )}
-              <div className="bottom flex items-center justify-between gap-[22vw] text-[#6F6F6F] font-medium">
+              <div className="bottom flex mt-3 items-center justify-between gap-[22vw] text-[#6F6F6F] font-medium">
                 <p>
                   {currentQuestionIndex + 1} of {questions.length} Questions
                 </p>
                 <button
                   onClick={handleNextQuestion}
-                  className="bg-[#017DFE] text-[#73C0F9] font-medium"
+                  className="bg-[#017DFE] rounded-md px-4 py-2  text-white font-medium"
                 >
                   Next Question
                 </button>
